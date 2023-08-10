@@ -42,3 +42,17 @@ main h2{
 .mole{
     background-color: chocolate;
 }
+
+#start{
+    width: 80px;
+    height: 20px;
+    color: white;
+    margin-bottom: 10px;
+    background:  #FFA500;
+    border: none;
+    border-radius: 2px;
+}
+
+#start:hover{
+    cursor: pointer;
+}

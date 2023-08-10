@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #36454F;
+    text-align: center;
+}
+
+main{
+    background: linear-gradient(45deg,#ff0000,#00ff00 50%,#0000ff 70%);
+    color: white;
+    margin: 100px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+main h2{
+    margin-top: 10px;
+}
+
+#grid{
+    display: flex;
+    flex-wrap: wrap;
+    width: 606px;
+    height: 606px;
+    margin: 20px 80px;
+}
+
+.square{
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.mole{
+    background-color: chocolate;
+}

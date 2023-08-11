@@ -4,6 +4,7 @@ const mole = document.querySelector(".mole");
 const score = document.getElementById("score");
 const time = document.getElementById("time-left");
 const start = document.getElementById("start");
+const stopEl = document.getElementById("stop");
 
 let result = 0;
 
@@ -20,9 +21,14 @@ function randomSquare(){
     randomPosition.classList.add('mole');
 }
 
+let timerId;
 function moveMole(){
-    let timerId = null;
+    timerId = null;
     timerId = setInterval(randomSquare,500); //call the randomSquare method after every 500 milliseconds
 }
+
+stopEl.addEventListener("click",()=>{
+    clearInterval(timerId);
+});
 
 start.addEventListener("click",moveMole);

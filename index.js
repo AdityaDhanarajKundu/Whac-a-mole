@@ -8,6 +8,7 @@ const stopEl = document.getElementById("stop");
 
 let result = 0;
 
+let hitPosition;
 //creating a function to select random squares for the mole to pop
 function randomSquare(){
     //removing the existing mole if any squares has one so that we can start fresh
@@ -19,6 +20,9 @@ function randomSquare(){
     let randomPosition = squares[Math.floor(Math.random()*9)];
     //adding the mole to that particular random mole class
     randomPosition.classList.add('mole');
+
+    //save the position of the square into a variable
+    hitPosition = randomPosition.id;
 }
 
 let timerId;
@@ -27,8 +31,16 @@ function moveMole(){
     timerId = setInterval(randomSquare,500); //call the randomSquare method after every 500 milliseconds
 }
 
-stopEl.addEventListener("click",()=>{
-    clearInterval(timerId);
+//to check if the mole has been hit
+squares.forEach((square)=>{
+    square.addEventListener('mousedown',()=>{
+        if (square.id===hitPosition){
+            result++;
+            console.log(result);
+            score.textContent = result;
+            hitPosition = null;
+        }
+    });
 });
 
 start.addEventListener("click",moveMole);

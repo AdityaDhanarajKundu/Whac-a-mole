@@ -40,7 +40,8 @@ main h2{
 }
 
 .mole{
-    background-color: chocolate;
+    background: url('whack-a-mole.png');
+    background-size: cover;
 }
 
 #start{

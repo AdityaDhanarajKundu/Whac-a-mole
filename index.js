@@ -7,7 +7,7 @@ const start = document.getElementById("start");
 const stopEl = document.getElementById("stop");
 
 let result = 0;
-
+let currentTime = 60;
 let hitPosition;
 //creating a function to select random squares for the mole to pop
 function randomSquare(){
@@ -25,10 +25,12 @@ function randomSquare(){
     hitPosition = randomPosition.id;
 }
 
+let countDownTimer;
 let timerId;
 function moveMole(){
     timerId = null;
     timerId = setInterval(randomSquare,500); //call the randomSquare method after every 500 milliseconds
+    countDownTimer = setInterval(countDown,1000);
 }
 
 //to check if the mole has been hit
@@ -44,3 +46,20 @@ squares.forEach((square)=>{
 });
 
 start.addEventListener("click",moveMole);
+
+function countDown(){
+    currentTime--;
+    time.textContent=currentTime;
+    
+    if (currentTime===0){
+        clearInterval(countDownTimer);
+        clearInterval(timerId);
+        alert("Game Over!! The final Score is "+result);
+        squares.forEach((element)=>{
+            element.classList.remove("mole");
+        });
+        currentTime = 60;
+        result = 0;
+        score.textContent=result;
+    }
+}
